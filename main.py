@@ -306,8 +306,7 @@ def load_messages():
     if not success:
         return {"code": code, "data": [{"role": "web-system", "content": message}]}
     if session.get('user_id') is None:
-        messages_history = [{"role": "assistant", "content": project_info},
-                            {"role": "assistant", "content": "#### 当前浏览器会话为首次请求\n"
+        messages_history = [{"role": "assistant", "content": "#### 当前浏览器会话为首次请求\n"
                                                              "#### 请输入已有用户`id`或创建新的用户`id`。\n"
                                                              "- 已有用户`id`请在输入框中直接输入\n"
                                                              "- 创建新的用户`id`请在输入框中输入`new:xxx`,其中`xxx`为你的自定义id，请牢记\n"
@@ -518,8 +517,7 @@ def new_chat_dict(user_id, name, send_time):
     return {"chat_with_history": False,
             "have_chat_context": 0,  # 从每次重置聊天模式后开始重置一次之后累计
             "name": name,
-            "messages_history": [{"role": "assistant", "content": project_info},
-                                 {"role": "web-system", "content": f"当前对话的用户id为{user_id}"},
+            "messages_history": [{"role": "web-system", "content": f"当前对话的用户id为{user_id}"},
                                  {"role": "web-system", "content": send_time},
                                  {"role": "web-system", "content": f"你已添加了{name}，现在可以开始聊天了。"},
                                  ]}
